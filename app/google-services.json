@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "186989725030",
+    "firebase_url": "https://califi.firebaseio.com",
+    "project_id": "califi",
+    "storage_bucket": "califi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:186989725030:android:18a4dd202595419161b4a7",
+        "android_client_info": {
+          "package_name": "com.proyectconpany.calificaion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "186989725030-b35riscqutsa6kf9c9e2h7tt9i5qpg9e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9ES_Lm8lRS-Zue99ioCHiOKGYRHhAyeQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "186989725030-b35riscqutsa6kf9c9e2h7tt9i5qpg9e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
