@@ -17,14 +17,14 @@ class RegistroMateriaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro_materia)
         val date = Date()
-
-      //  textCodigo1.text = "${date.day}${date.hours}${date.minutes}"
+        val codigo = "${date.day}${date.hours}${date.minutes}"
+        textCodigo1.setText(codigo)
         botonAtras.setOnClickListener{finish()}
         var database = FirebaseDatabase.getInstance().reference
         botonRegistro.setOnClickListener{
 
             var nombre = textNombre.text.toString()
-            var codigo = textCodigo1.text.toString()
+
 
             var materia = Materia()
             materia.codigo = codigo

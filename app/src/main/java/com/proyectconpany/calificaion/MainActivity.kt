@@ -82,6 +82,8 @@ class MainActivity : AppCompatActivity() {
         listaActivid.setOnItemClickListener { parent, view, position, id ->
             val intent = Intent(this@MainActivity, MateriaActivity:: class.java)
             intent.putExtra("materia", listaMaterias[position])
+            var actividad = Actividad()
+            intent.putExtra("actividad", actividad)
             startActivity(intent)
         }
     }

@@ -3,6 +3,7 @@ package Entity
 import java.io.Serializable
 
 class Actividad:Serializable {
+    var codigo = ""
     var nombre = ""
     var nota = 0.0
     private var porcentaje = 0.0
