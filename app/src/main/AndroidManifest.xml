@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RegistroMateriaActivity"></activity>
+        <activity android:name=".ListaActividadesActivity"></activity>
+        <activity android:name=".ItemActividadActivity" />
+        <activity android:name=".CrearActividadActivity" />
+        <activity android:name=".RegistroMateriaActivity" />
         <activity android:name=".MateriaActivity" />
         <activity android:name=".ItemMateria" />
         <activity android:name=".MainActivity">

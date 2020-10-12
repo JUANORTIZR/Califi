@@ -10,12 +10,49 @@ class MateriaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_materia)
+
         var intent: Intent = getIntent()
         val materia = intent.getSerializableExtra("materia") as Materia
 
 
-       // textNombre.text = materia.nombre
-        //textCodigo.text = materia.codigo
+        botonCrearActividadPrimCorte.setOnClickListener{
+            var intent = Intent(this@MateriaActivity, CrearActividadActivity::class.java)
+            intent.putExtra("materia", materia)
+            intent.putExtra("opcion", "primer")
+            startActivity(intent)
+        }
+
+        botonVerActividadPrimCorte.setOnClickListener{
+            var intent = Intent(this@MateriaActivity, ListaActividadesActivity::class.java)
+            intent.putExtra("opcion", "primer")
+            startActivity(intent)
+        }
+
+        botonCrearActividadSegCorte.setOnClickListener{
+            var intent = Intent(this@MateriaActivity, CrearActividadActivity::class.java)
+            intent.putExtra("materia", materia)
+            intent.putExtra("opcion", "segundo")
+            startActivity(intent)
+        }
+
+        botonVerActividadSegCorte.setOnClickListener{
+            var intent = Intent(this@MateriaActivity, ListaActividadesActivity::class.java)
+            intent.putExtra("opcion", "segundo")
+            startActivity(intent)
+        }
+
+        botonCrearActividadTercerCorte.setOnClickListener{
+            var intent = Intent(this@MateriaActivity, CrearActividadActivity::class.java)
+            intent.putExtra("materia", materia)
+            intent.putExtra("opcion", "tercer")
+            startActivity(intent)
+        }
+
+        botonVerActividadSegCorte.setOnClickListener{
+            var intent = Intent(this@MateriaActivity, ListaActividadesActivity::class.java)
+            intent.putExtra("opcion", "tercero")
+            startActivity(intent)
+        }
 
         botonAtras.setOnClickListener{finish()}
     }

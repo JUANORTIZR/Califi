@@ -10,20 +10,17 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.activity_lista_actividades.*
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class ListaActividadesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        boton1.setOnClickListener{
-            val intent = Intent(this@MainActivity, RegistroMateriaActivity:: class.java)
-            startActivity(intent)
-        }
+        setContentView(R.layout.activity_lista_actividades)
+
         var database = FirebaseDatabase.getInstance().reference
-        var listaMaterias = mutableListOf<Materia>()
-
-
+        var actividades = mutableListOf<Actividad>()
+        var materiaActual = Materia()
 
         var getData = object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
@@ -31,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
             override fun onDataChange(p0: DataSnapshot) {
 
-                listaMaterias.clear()
+                actividades.clear()
                 for(i in p0.children){
                     var materia = Materia()
                     var codigo = i.child("codigo").getValue()
@@ -63,28 +60,37 @@ class MainActivity : AppCompatActivity() {
                         actividad.nota = item.child("nota").getValue().toString().toDouble()
                         materia.tercerCorte.actividades.add(actividad)
                     }
-                    listaMaterias.add(materia)
+                    var intent: Intent = getIntent()
+                    var opcion = intent.getStringExtra("opcion")
+                    when {
+                        opcion.equals("primer") ->{
+                            actividades = materia.primerCorte.actividades
+                        }
+                        opcion.equals("segundo")->{
+                            actividades = materia.segundoCorte.actividades
+                        }
+                        opcion.equals("tercero") -> {
+                            actividades = materia.tercerCorte.actividades
+                        }
+                    }
+                    materiaActual = materia
                 }
 
-                Toast.makeText(
-                    this@MainActivity,
-                    "😍 que ser tan hermoso, sonrie", Toast.LENGTH_SHORT
-                ).show()
+                val adapter = ActividadAdadpter(this@ListaActividadesActivity,actividades)
 
-                val adapter = MateriaAdapter(this@MainActivity, listaMaterias)
-
-                listaActivid.adapter = adapter
+                lisActividades.adapter = adapter
             }
         }
         database.addValueEventListener(getData)
         database.addListenerForSingleValueEvent(getData)
 
-        listaActivid.setOnItemClickListener { parent, view, position, id ->
-            val intent = Intent(this@MainActivity, MateriaActivity:: class.java)
-            intent.putExtra("materia", listaMaterias[position])
+        lisActividades.setOnItemClickListener { parent, view, position, id ->
+            val intent = Intent(this@ListaActividadesActivity, CrearActividadActivity:: class.java)
+            intent.putExtra("materia", materiaActual)
+            intent.putExtra("actividad", actividades[position])
             startActivity(intent)
         }
+
+        botonAtrasActividades.setOnClickListener{finish()}
     }
-
-
 }

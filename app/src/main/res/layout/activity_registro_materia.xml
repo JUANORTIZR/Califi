@@ -62,6 +62,7 @@
         android:layout_marginTop="200dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="400dp"
+        android:enabled="true"
         android:hint="Codigo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,7 +82,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="300dp"
+        android:layout_marginBottom="290dp"
         android:hint="Nombre"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,7 +92,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textNombre"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:editable="false" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -105,6 +107,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textNombreInput" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:fontFamily="@font/acme"
+        android:text="Digita el nombre de la materia"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/textCodigo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/coordinatorLayout3" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="El codigo es generado autmaticamente"
+        app:layout_constraintBottom_toTopOf="@+id/textNombreInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textCodigo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

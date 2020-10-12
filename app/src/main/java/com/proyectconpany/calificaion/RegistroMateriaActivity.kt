@@ -1,25 +1,28 @@
 package com.proyectconpany.calificaion
 
+import Entity.Actividad
 import Entity.Materia
+import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
-import kotlinx.android.synthetic.main.activity_item_materia.view.*
 import kotlinx.android.synthetic.main.activity_registro_materia.*
-import java.lang.StringBuilder
+import java.util.*
 
 class RegistroMateriaActivity : AppCompatActivity() {
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro_materia)
+        val date = Date()
 
+      //  textCodigo1.text = "${date.day}${date.hours}${date.minutes}"
         botonAtras.setOnClickListener{finish()}
         var database = FirebaseDatabase.getInstance().reference
         botonRegistro.setOnClickListener{
+
             var nombre = textNombre.text.toString()
             var codigo = textCodigo1.text.toString()
 
